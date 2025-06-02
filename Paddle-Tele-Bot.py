@@ -35,6 +35,8 @@ from google.oauth2 import service_account
 from translate import Translator
 
 from ocr_predictor import PaddleOCRRecognizer
+from dotenv import load_dotenv
+load_dotenv()
 
 
 # Provide absolute or relative paths
