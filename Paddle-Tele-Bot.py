@@ -344,7 +344,7 @@ async def generate_audio(message: Message):
         # Extracting text using PyTesseract
         extracted_text = extract_text_from_image(file_path)
 
-        if not extracted_text.strip():
+        if not extracted_text:
             await message.answer("Տեքստ չի գտնվել, հավանաբար նկարում օբյեկտներ կան։")
             # if os.path.exists(file_path):
                 # os.remove(file_path)
@@ -360,7 +360,7 @@ async def generate_audio(message: Message):
         if armenian_objects[0] != "No objects detected":
             object_message = "🔍 Տեքստ չի գտնվել, հավանաբար նկարում օբյեկտներ կան:\n" + "\n".join(armenian_objects)
 
-        if extracted_text.strip():
+        if extracted_text:
             text_message = f"\n Նկարում կա տեքստ, ահա, խնդրեմ տեքստը՝ \n{extracted_text}"
 
         if object_message:
