@@ -1,7 +1,7 @@
 import os
 import sys
 
-PADDLE_OCR_PATH = "../PaddleOCR"
+PADDLE_OCR_PATH = "./PaddleOCR"
 if PADDLE_OCR_PATH not in sys.path:
     sys.path.insert(0, PADDLE_OCR_PATH)
 
@@ -79,8 +79,8 @@ class PaddleOCRRecognizer:
 
 # Example usage
 if __name__ == "__main__":
-    config_path = "./config.yaml"
-    model_path = "./model/model/best_accuracy"
+    config_path = "./PaddleOCR/configs/rec/multi_language/rec_crnn_armenian.yml"
+    model_path = "./PaddleOCR/output/rec_armenian_lite/best_accuracy"
     image_path = "img_00265.png"
 
     recognizer = PaddleOCRRecognizer(config_path, model_path)
