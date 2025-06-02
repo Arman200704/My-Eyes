@@ -430,7 +430,7 @@ async def generate_audio(message: Message):
             logger.error(f"Failed to send audio: {e}")
             await message.answer("Ձայնային ֆայլը ուղարկել չհաջողվեց։")
             print("Audio sending error:", str(e))
-        finally:
+        # finally:
             # if os.path.exists(mp3_path):
                 # os.remove(mp3_path)
 
