@@ -79,8 +79,8 @@ class PaddleOCRRecognizer:
 
 # Example usage
 if __name__ == "__main__":
-    config_path = "config.yml"
-    model_path = "./output/rec_armenian_lite/best_accuracy"
+    config_path = "./config.yml"
+    model_path = "./model/model/best_accuracy"
     image_path = "img_00265.png"
 
     recognizer = PaddleOCRRecognizer(config_path, model_path)
