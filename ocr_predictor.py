@@ -79,7 +79,7 @@ class PaddleOCRRecognizer:
 
 # Example usage
 if __name__ == "__main__":
-    config_path = "./config.yml"
+    config_path = "./config.yaml"
     model_path = "./model/model/best_accuracy"
     image_path = "img_00265.png"
 
