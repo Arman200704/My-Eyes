@@ -221,7 +221,7 @@ def extract_text_from_image(image_path):
         print(image_path)
         # extracted_text = pytesseract.image_to_string(image, config='--psm 6', lang='hye+eng+rus')
         extracted_text = ocr.predict(image_path)
-        return extracted_text.strip()
+        return extracted_text
     except Exception as e:
         logger.error(f"Error extracting text: {e}")
         return f"Error extracting text: {str(e)}"
