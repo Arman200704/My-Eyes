@@ -50,6 +50,8 @@ ocr = PaddleOCRRecognizer(config_path, model_path)
 # Run OCR on the image
 result = ocr.predict(image_path)
 
+print(f"Recognized text: {result}")
+
 app = logging.getLogger(__name__)
 
 # UPLOAD_FOLDER = 'static/uploads'
