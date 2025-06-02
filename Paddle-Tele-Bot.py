@@ -86,7 +86,7 @@ access_token = os.getenv("WAV_AM_ACCESS_TOKEN")
 
 pytesseract.pytesseract.tesseract_cmd = r'/usr/local/bin/tesseract'
 
-OD_path = "/Users/tat/PycharmProjects/efficientdet_lite0.tflite"
+OD_path = "./detector.tflite"
 
 base_options = python.BaseOptions(model_asset_path=OD_path)
 options = vision.ObjectDetectorOptions(
