@@ -322,7 +322,7 @@ async def handle_audio_sending(message: Message, mp3_path: str):
         if 'ogg_bytes' in locals():
             ogg_bytes.close()
         if os.path.exists(mp3_path):
-            os.remove(mp3_path)
+            # os.remove(mp3_path)
 
 
 @router.message(F.photo)
@@ -347,7 +347,7 @@ async def generate_audio(message: Message):
         if not extracted_text.strip():
             await message.answer("Տեքստ չի գտնվել, հավանաբար նկարում օբյեկտներ կան։")
             if os.path.exists(file_path):
-                os.remove(file_path)
+                # os.remove(file_path)
             return
 
         english_objects = detect_objects(file_path)
@@ -401,7 +401,7 @@ async def generate_audio(message: Message):
             await message.answer("Սխալ API պատասխան։")
             print("Invalid JSON response:", tts_response.text)
             if os.path.exists(file_path):
-                os.remove(file_path)
+                # os.remove(file_path)
             return
 
         audio_response = requests.get(url)
@@ -412,7 +412,7 @@ async def generate_audio(message: Message):
             await message.answer("Չհաջողվեց ներբեռնել ձայնային ֆայլը։")
             print("MP3 file does not exist at path:", mp3_path)
             if os.path.exists(file_path):
-                os.remove(file_path)
+                # os.remove(file_path)
             return
         try:
             voice_file = FSInputFile(mp3_path)
@@ -432,10 +432,10 @@ async def generate_audio(message: Message):
             print("Audio sending error:", str(e))
         finally:
             if os.path.exists(mp3_path):
-                os.remove(mp3_path)
+                # os.remove(mp3_path)
 
             if os.path.exists(file_path):
-                os.remove(file_path)
+                # os.remove(file_path)
     except Exception as send_error:
         logger.error(f"Audio sending failed: {send_error}")
         await message.answer("Չհաջողվեց ուղարկել ձայնային ֆայլը։")
