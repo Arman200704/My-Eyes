@@ -29,6 +29,20 @@ from google.cloud import translate_v2 as translate
 from google.oauth2 import service_account
 from translate import Translator
 
+from ocr_predictor import PaddleOCRRecognizer
+
+
+# Provide absolute or relative paths
+config_path = "PaddleOCR/configs/rec/multi_language/rec_crnn_armenian.yml"
+model_path = "PaddleOCR/output/rec_armenian_lite/best_accuracy"
+image_path = "img_00265.png"
+
+# Initialize the recognizer
+ocr = PaddleOCRRecognizer(config_path, model_path)
+
+# Run OCR on the image
+result = ocr.predict(image_path)
+
 app = logging.getLogger(__name__)
 
 # UPLOAD_FOLDER = 'static/uploads'
