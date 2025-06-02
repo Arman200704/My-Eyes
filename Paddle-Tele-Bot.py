@@ -436,11 +436,6 @@ async def generate_audio(message: Message):
         await message.answer("Չհաջողվեց ուղարկել ձայնային ֆայլը։")
 
 
-@router.message(F.photo)
-async def handle_photo_message(message: Message):
-    await generate_audio(message)
-
-
 async def main() -> None:
     dp.include_router(router)
     await bot.delete_webhook(drop_pending_updates=True)
