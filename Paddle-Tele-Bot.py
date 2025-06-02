@@ -321,7 +321,7 @@ async def handle_audio_sending(message: Message, mp3_path: str):
     finally:
         if 'ogg_bytes' in locals():
             ogg_bytes.close()
-        if os.path.exists(mp3_path):
+        # if os.path.exists(mp3_path):
             # os.remove(mp3_path)
 
 
@@ -346,9 +346,9 @@ async def generate_audio(message: Message):
 
         if not extracted_text.strip():
             await message.answer("Տեքստ չի գտնվել, հավանաբար նկարում օբյեկտներ կան։")
-            if os.path.exists(file_path):
+            # if os.path.exists(file_path):
                 # os.remove(file_path)
-            return
+            # return
 
         english_objects = detect_objects(file_path)
 
@@ -400,9 +400,9 @@ async def generate_audio(message: Message):
         except json.JSONDecodeError:
             await message.answer("Սխալ API պատասխան։")
             print("Invalid JSON response:", tts_response.text)
-            if os.path.exists(file_path):
+            # if os.path.exists(file_path):
                 # os.remove(file_path)
-            return
+            # return
 
         audio_response = requests.get(url)
         print("Audio download status:", audio_response.status_code)
@@ -411,9 +411,9 @@ async def generate_audio(message: Message):
         if not os.path.exists(mp3_path):
             await message.answer("Չհաջողվեց ներբեռնել ձայնային ֆայլը։")
             print("MP3 file does not exist at path:", mp3_path)
-            if os.path.exists(file_path):
+            # if os.path.exists(file_path):
                 # os.remove(file_path)
-            return
+            # return
         try:
             voice_file = FSInputFile(mp3_path)
 
@@ -431,10 +431,10 @@ async def generate_audio(message: Message):
             await message.answer("Ձայնային ֆայլը ուղարկել չհաջողվեց։")
             print("Audio sending error:", str(e))
         finally:
-            if os.path.exists(mp3_path):
+            # if os.path.exists(mp3_path):
                 # os.remove(mp3_path)
 
-            if os.path.exists(file_path):
+            # if os.path.exists(file_path):
                 # os.remove(file_path)
     except Exception as send_error:
         logger.error(f"Audio sending failed: {send_error}")
