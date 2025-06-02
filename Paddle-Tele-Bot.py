@@ -336,6 +336,10 @@ async def generate_audio(message: Message):
         file_path = os.path.join(IMAGE_DIR, f"{photo.file_id}.jpg")
         await bot.download_file(file.file_path, destination=file_path)
 
+        print(f"Image downloaded to: {file_path}")
+        if not os.path.exists(file_path):
+            print("File does not exist after download.")
+            return
         # Extracting text using PyTesseract
         extracted_text = extract_text_from_image(file_path)
 
