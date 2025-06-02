@@ -218,6 +218,7 @@ def extract_text_from_image(image_path):
         if image is None:
             return "Հնարավոր չեղավ բեռնել նկարը։"
 
+        print(image_path)
         # extracted_text = pytesseract.image_to_string(image, config='--psm 6', lang='hye+eng+rus')
         extracted_text = ocr.predict(image_path)
         return extracted_text.strip()
