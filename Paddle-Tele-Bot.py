@@ -41,7 +41,7 @@ load_dotenv()
 
 # Provide absolute or relative paths
 config_path = "PaddleOCR/configs/rec/multi_language/rec_crnn_armenian.yml"
-model_path = "PaddleOCR/output/rec_armenian_lite/best_accuracy"
+model_path = "./model/model/best_accuracy"
 image_path = "img_00265.png"
 
 # Initialize the recognizer
