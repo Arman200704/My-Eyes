@@ -14,7 +14,7 @@ import os
 PADDLE_OCR_PATH = "./PaddleOCR"
 if PADDLE_OCR_PATH not in sys.path:
     sys.path.insert(0, PADDLE_OCR_PATH)
-    
+
 from aiogram import Bot, Dispatcher, Router, F
 from aiogram.filters import Command
 from aiogram.types import Message
@@ -56,6 +56,8 @@ app = logging.getLogger(__name__)
 
 
 key_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+
+print(f"Using Google credentials from: {key_path}")
 
 credentials = service_account.Credentials.from_service_account_file(
     key_path,
