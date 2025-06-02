@@ -227,18 +227,6 @@ def extract_text_from_image(image_path):
         return f"Error extracting text: {str(e)}"
 
 
-def handle_photo(update: Update, context: CallbackContext):
-    photo_file = update.message.photo[-1].get_file()
-    image_path = "received_image.png"
-    photo_file.download(image_path)
-
-    text = extract_text_from_image(image_path)
-
-    update.message.reply_text(f" Recognized Text:\n{text}")
-
-    os.remove(image_path)
-
-
 payload = jwt.decode(access_token, options={"verify_signature": False})
 print(payload)
 
