@@ -1,4 +1,10 @@
 import os
+import sys
+
+PADDLE_OCR_PATH = "~/PaddleOCR"
+if PADDLE_OCR_PATH not in sys.path:
+    sys.path.insert(0, PADDLE_OCR_PATH)
+
 import yaml
 import numpy as np
 import paddle
